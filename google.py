@@ -1,13 +1,14 @@
+import urllib
 import urllib2
 
 url = "http://www.google.com/"
 
 urllist = []
 
-try:
-  result = urllib2.urlopen(url)
-  urllist.append(result)
-except urllib2.URLError, e:
-  handleError(e)
+def our_urls():
+    return urllib2.urlopen(url).geturl()
 
-print urllist
+question = "Who played chase on house?"
+
+print our_urls()
+
