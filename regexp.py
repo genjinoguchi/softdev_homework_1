@@ -50,10 +50,10 @@ def findDate(s):
     for k in range(0,12):
         f2=  months[k] + " (\d{1,2}), ((\d\d){1,2})"
         res2 = re.findall(f2,s)
-        if int(g[2]) < 100:
-            H.append(int(g[2]) + 1900)
+        if int(g[1]) < 100:
+            H.append(int(g[1]) + 1900)
         else:
-            H.append(int(g[2]))
+            H.append(int(g[1]))
     L.append(H)
 
     for k in range(0,12):
