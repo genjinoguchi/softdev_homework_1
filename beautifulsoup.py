@@ -3,8 +3,8 @@ import urllib2, httplib
 
 def listTexts(urls):
     htmls = []
-    for u in urls:
-       htmls.add(getText(url))
+    for url in urls:
+       htmls.append(getText(url))
     return htmls 
 
 def getText(url):
@@ -27,5 +27,6 @@ if __name__ == '__main__':
     
     #print getText("http://www.politifact.com/texas/statements/2014/mar/19/kesha-rogers/four-us-citizens-killed-obama-drone-strikes-3-were/") 
     #print getText("http://screenrant.com/iron-man-actor-mark-wahlberg")
-    print getText("http://www.nytimes.com/2013/07/18/opinion/the-drone-that-killed-my-grandson.html?_r=0")
-    print getText("https://www.youtube.com/watch?v=VBmMU_iwe6U")
+    #print getText("http://www.nytimes.com/2013/07/18/opinion/the-drone-that-killed-my-grandson.html?_r=0")
+    #print getText("https://www.youtube.com/watch?v=VBmMU_iwe6U")
+    "blah"

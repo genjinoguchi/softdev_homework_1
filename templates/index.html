@@ -2,13 +2,65 @@
 <html>
   <head>
     <title>
-      Google-ish Search
+      {{query}}Google-ish Search
     </title>
-  </head>
 
+    <link rel="stylesheet" type="text/css" href="../static/font-awesome-4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <script type="text/javascript" src="../static/jquery-1.11.1.min.js"></script>
+
+    <style>
+      .center {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      width: 500px;
+      }
+
+      form {
+      margin-top: 10%;
+      display: block;
+      }
+
+      #copyright {
+      right: 0px;
+      bottom: 0px;
+      position: fixed;
+      }
+
+      #results {
+      margin-top: 10%;
+      }
+
+      .header {
+      font-size: 300%;
+      }
+    </style>
+
+  </head>
+  
   <body>
-    <center>Search!</center>
-    
+    <form method="POST" action="/query" class="pure-form center">
+      what do you want to know?<br>
+      <input type="text" name="query">
+      <input type="submit" value="Search!" class="pure-button pure-button-primary">
+    </form>
+    <div id="copyright">
+      copyright genji, andreas, sophie, sunnam
+    </div>
+    <br>
+    <div class="header center">
+      {{header}}
+    </div>
+
+    <div id="results center">
+      {% for result in results %}
+
+      <span class="answer" style="font-size: {{ 10 * results[result] }}px">
+	{{ result }}.
+      </span>
+      {% endfor %}
+    </div>
 
   </body>
 

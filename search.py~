@@ -1,0 +1,41 @@
+import urllib2
+import beautifulsoup
+from regexp import findName, findDate
+
+def getAnswers(query):
+  results={}
+
+  urllist=[]
+  """
+  url = "http://www.google.com/"
+  urllist = []
+  try:
+    result = urllib2.urlopen(url)
+    urllist.append(result)
+  except urllib2.URLError, e:
+    handleError(e)
+  """
+
+  urllist.append("http://en.wikipedia.org/wiki/Python_(programming_language)")
+  urllist.append("https://docs.python.org/2/howto/urllib2.html")
+  urllist.append("http://www.politifact.com/texas/statements/2014/mar/19/kesha-rogers/four-us-citizens-killed-obama-drone-strikes-3-were/")
+
+  if query.find("Who")>=0 or query.find("who")>=0:
+    for url in urllist:
+      name=findName(url)
+      if name in results.keys():
+        results[name]+=1
+      else:
+        results[name]=1
+  return results
+"""  else:
+    for url in urllist:
+      date=findDate(url)
+      if date in results.keys():
+        results[date]+=1
+      else:
+        results[date]=1
+"""
+#  return results
+    
+      

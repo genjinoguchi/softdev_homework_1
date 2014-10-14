@@ -34,13 +34,22 @@ def findDate(s):
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     monthsAbbrv= []
     L = []
-
+    H = []
     for i in months:
         monthsAbbrv.append(i[:3])
     f1 = "(\d{1,2})[,.-/](\d{1,2})[,.-/]((\d\d){1,2})"
     res1 = re.findall(f1,s)
     for g in res1:
         H = [int(g[0]), int(g[1])]
+        if int(g[2]) < 100:
+            H.append(int(g[2]) + 1900)
+        else:
+            H.append(int(g[2]))
+    L.append(H)
+
+    for k in range(0,12):
+        f2=  months[k] + " (\d{1,2}), ((\d\d){1,2})"
+        res2 = re.findall(f2,s)
         if int(g[2]) < 100:
             H.append(int(g[2]) + 1900)
         else:
@@ -97,10 +106,12 @@ def processNames(data):
     for i in data:
         g = findName(i)
         L.extend(g)
-    return cleanAndTallyNames(L)
+    return L
+    #return cleanAndTallyNames(L)
 def processDates(data):
     L = []
     for i in data:
         g = findDate(i)
         L.extend(g)
-    return cleanAndTallyDates(L)
+    return L
+    #return cleanAndTallyDates(L)
