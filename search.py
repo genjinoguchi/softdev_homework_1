@@ -18,23 +18,12 @@ def getAnswers(query):
 
 
   stringlist=listTexts(urllist)
-  print "I'm here now"
-  print stringlist
   
   if query.find("Who")>=0 or query.find("who")>=0:
-    names = processNames(stringlist)
-    print names
-    for name in names:
-      if name in results.keys():
-        results[name]+=1
-      else:
-        results[name]=1
+    results = processNames(stringlist)
+    #print results
+  elif query.find("When")>=0 or query.find("when")>=0:
+    results = processDates(stringlist)
   else:
-    dates=processDates(stringlist)
-    for date in dates:
-      if date in results.keys():
-        results[date]+=1
-      else:
-        results[date]=1
+    results["I'm sorry, I didn't understand that"]=5;
   return results
-      

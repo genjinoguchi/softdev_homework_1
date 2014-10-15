@@ -21,13 +21,14 @@ def cleanAndTallyNames(L):
         i = res[s]
         i = i + 1
         res[s] = i
-    winner = ""
-    num = 0
-    for n in res:
-        if res[n] > num:
-            winner = n
-            num = res[n]
-    return winner
+    return res;
+#    winner = ""
+#    num = 0
+#    for n in res:
+#        if res[n] > num:
+#            winner = n
+#            num = res[n]
+#    return winner
 
 
 def findDate(s):
@@ -87,19 +88,20 @@ def findDate(s):
 def cleanAndTallyDates(L):
     res = {}
     for k in L:
-        s = str(L[0]) + "-" + str(L[1]) + "-" + str(L[2])
+        s = str(k[0]) + "-" + str(k[1]) + "-" + str(k[2])
         if s not in res:
             res[s] = 0
         i = res[s]
         i = i + 1
         res[s] = i
-    winner = ""
-    num = 0
-    for n in res:
-        if res[n] > num:
-            winner = n
-            num = res[n]
-    return winner
+    return res
+    #winner = ""
+    #num = 0
+    #for n in res:
+    #    if res[n] > num:
+    #        winner = n
+    #        num = res[n]
+    #return winner
 
 #only run these
 #data should be a list of strings
@@ -108,12 +110,12 @@ def processNames(data):
     for i in data:
         g = findName(i)
         L.extend(g)
-    return L
-    #return cleanAndTallyNames(L)
+    #return L
+    return cleanAndTallyNames(L)
 def processDates(data):
     L = []
     for i in data:
         g = findDate(i)
         L.extend(g)
-    return L
-    #return cleanAndTallyDates(L)
+    #return L
+    return cleanAndTallyDates(L)
