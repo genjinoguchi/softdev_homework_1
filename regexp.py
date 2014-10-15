@@ -84,22 +84,12 @@ def findDate(s):
             L.append(H)
     return L
 
-def cleanAndTallyDates(L):
-    res = {}
+def cleanDates(L):
+    res = []
     for k in L:
-        s = str(L[0]) + "-" + str(L[1]) + "-" + str(L[2])
-        if s not in res:
-            res[s] = 0
-        i = res[s]
-        i = i + 1
-        res[s] = i
-    winner = ""
-    num = 0
-    for n in res:
-        if res[n] > num:
-            winner = n
-            num = res[n]
-    return winner
+        s = str(k[0]) + "-" + str(k[1]) + "-" + str(k[2])
+        res.append(s)
+    return res
 
 #only run these
 #data should be a list of strings
