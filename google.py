@@ -2,13 +2,14 @@ import urllib
 import urllib2
 
 url = "http://www.google.com/"
+question = "Who played chase on house?"
 
 urllist = []
 
 def our_urls():
-    return urllib2.urlopen(url[,"who played chase on house?"]).geturl()
-
-question = "Who played chase on house?"
+    urllist.append(urllib2.urlopen(url).geturl())
+    return urllist
+    #return urllib2.urlopen(url).geturl()
 
 print our_urls()
 
