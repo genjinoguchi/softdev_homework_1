@@ -85,8 +85,8 @@ def findDate(s):
             L.append(H)
     return L
 
-def cleanDates(L):
-    res = []
+def cleanAndTallyDates(L):
+    res = {}
     for k in L:
         s = str(k[0]) + "-" + str(k[1]) + "-" + str(k[2])
         if s not in res:
